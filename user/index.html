@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PONLEU - User Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo" onclick="PonleuUser.navigate('home')">
+                    <div class="logo-icon">P</div>
+                    <div class="logo-text">
+                        <span>PONLEU</span>
+                        <small>User Portal</small>
+                    </div>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a onclick="PonleuUser.navigate('home')"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a onclick="PonleuUser.navigate('explore')"><i class="fas fa-compass"></i> Explore</a></li>
+                        <li><a onclick="PonleuUser.navigate('categories')"><i class="fas fa-th-large"></i> Categories</a></li>
+                        <li><a onclick="PonleuUser.navigate('about')"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <button class="search-btn" onclick="PonleuUser.openSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <div class="auth-buttons" id="authButtons">
+                        <button class="btn-outline" onclick="PonleuUser.showLoginModal()">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </button>
+                        <button class="btn-primary" onclick="PonleuUser.showRegisterModal()">
+                            <i class="fas fa-user-plus"></i> Sign Up
+                        </button>
+                    </div>
+                    
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-avatar" id="userAvatarImg"></div>
+                        <div class="user-dropdown">
+                            <div class="dropdown-header">
+                                <div class="dropdown-avatar" id="dropdownAvatar"></div>
+                                <div class="dropdown-info">
+                                    <div class="dropdown-name" id="dropdownName"></div>
+                                    <div class="dropdown-email" id="dropdownEmail"></div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a onclick="PonleuUser.navigate('profile')"><i class="fas fa-user"></i> My Profile</a>
+                            <a onclick="PonleuUser.navigate('my-posts')"><i class="fas fa-file-alt"></i> My Posts</a>
+                            <a onclick="PonleuUser.navigate('create-post')"><i class="fas fa-plus-circle"></i> Create Post</a>
+                            <div class="dropdown-divider"></div>
+                            <a onclick="PonleuUser.logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                    
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent"></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">P</div>
+                        <div>
+                            <span style="font-weight: 700; color: white;">PONLEU</span>
+                            <small style="display: block; color: var(--gray);">User Portal</small>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Empowering Cambodian creators to showcase their work, connect with community, and grow their careers.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a onclick="PonleuUser.navigate('home')">Home</a></li>
+                        <li><a onclick="PonleuUser.navigate('explore')">Explore</a></li>
+                        <li><a onclick="PonleuUser.navigate('categories')">Categories</a></li>
+                        <li><a onclick="PonleuUser.navigate('about')">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get latest updates</p>
+                    <div style="display: flex; margin-top: var(--spacing-md);">
+                        <input type="email" placeholder="Your email" style="flex: 1; padding: var(--spacing-sm); border: none; border-radius: var(--radius-md) 0 0 var(--radius-md);">
+                        <button style="padding: var(--spacing-sm) var(--spacing-md); background: var(--primary); color: white; border: none; border-radius: 0 var(--radius-md) var(--radius-md) 0; cursor: pointer;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PONLEU. All rights reserved. | Made with <i class="fas fa-heart"></i> for Cambodian Creators</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-sign-in-alt"></i> Welcome Back</h3>
+                <button class="modal-close" onclick="PonleuUser.closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-error" id="loginError" style="display: none;"></div>
+                <div class="form-group">
+                    <label>Username or Email</label>
+                    <input type="text" id="loginUsername" placeholder="Enter your username or email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                </div>
+                <button class="btn-primary btn-block" onclick="PonleuUser.login()">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                <p class="modal-footer-text">
+                    Don't have an account? <a onclick="PonleuUser.closeModal('loginModal'); PonleuUser.showRegisterModal()">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> Create Account</h3>
+                <button class="modal-close" onclick="PonleuUser.closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-error" id="regError" style="display: none;"></div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose a username">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="regConfirm" placeholder="Confirm your password">
+                </div>
+                <button class="btn-primary btn-block" onclick="PonleuUser.register()">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                <p class="modal-footer-text">
+                    Already have an account? <a onclick="PonleuUser.closeModal('registerModal'); PonleuUser.showLoginModal()">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <div class="search-modal-header">
+                <h3><i class="fas fa-search"></i> Search Works</h3>
+                <button class="close-search" onclick="PonleuUser.closeSearch()">&times;</button>
+            </div>
+            <form class="search-form" onsubmit="PonleuUser.handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Search by title, creator, or category..." autocomplete="off">
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
+            <div class="search-suggestions">
+                <p><i class="fas fa-fire"></i> Popular Searches</p>
+                <div class="suggestion-tags">
+                    <span onclick="PonleuUser.quickSearch('Designer')">Designer</span>
+                    <span onclick="PonleuUser.quickSearch('Developer')">Developer</span>
+                    <span onclick="PonleuUser.quickSearch('UI/UX')">UI/UX</span>
+                    <span onclick="PonleuUser.quickSearch('AI')">AI</span>
+                    <span onclick="PonleuUser.quickSearch('Portfolio')">Portfolio</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Modal -->
+    <div class="modal" id="postModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 id="postModalTitle">Post Details</h3>
+                <button class="modal-close" onclick="PonleuUser.closeModal('postModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="postModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle" id="toastIcon"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/user.js"></script>
+</body>
+</html>

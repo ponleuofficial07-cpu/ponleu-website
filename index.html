@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PONLEU - Professional Platform for Creators</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="entry-container">
+        <div class="entry-card" data-aos="fade-up">
+            <div class="logo">
+                <div class="logo-icon">P</div>
+                <div class="logo-text">
+                    <span>PONLEU</span>
+                    <small>Creative Platform</small>
+                </div>
+            </div>
+            <h1>Welcome to PONLEU</h1>
+            <p>Professional Platform for Designers & Programmers in Cambodia</p>
+            
+            <div class="entry-buttons">
+                <a href="user/" class="btn-user">
+                    <i class="fas fa-user"></i>
+                    <span>User Portal</span>
+                    <small>Browse & Share Works</small>
+                </a>
+                <a href="admin/" class="btn-admin">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Admin Portal</span>
+                    <small>Manage Platform</small>
+                </a>
+            </div>
+            
+            <div class="entry-footer">
+                <p>© 2025 PONLEU. Empowering Cambodian Creators</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .entry-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+        }
+        .entry-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6366f1, #10b981);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        .logo-text span {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #10b981);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo-text small {
+            font-size: 0.65rem;
+            color: #64748b;
+            display: block;
+        }
+        .entry-card h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+        .entry-card p {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+        .entry-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn-user, .btn-admin {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-user {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+        .btn-admin {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+        }
+        .btn-user:hover, .btn-admin:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.25);
+        }
+        .btn-user i, .btn-admin i {
+            font-size: 2rem;
+        }
+        .btn-user span, .btn-admin span {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .btn-user small, .btn-admin small {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+        .entry-footer {
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        @media (max-width: 480px) {
+            .entry-card { padding: 1.5rem; }
+            .entry-buttons { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
